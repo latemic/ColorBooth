@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+	<RadioGroup android:id="@+id/rg_colors"
+		android:checkedButton="@+id/btn_white" android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:orientation="horizontal">
+		<RadioButton android:id="@+id/btn_yellow" style="@style/ColorButton"
+			android:button="@drawable/btn_yellow" />
+		<RadioButton android:id="@+id/btn_red" style="@style/ColorButton"
+			android:button="@drawable/btn_red" />
+		<RadioButton android:id="@+id/btn_blue" style="@style/ColorButton"
+			android:button="@drawable/btn_blue" />
+		<RadioButton android:id="@+id/btn_white" style="@style/ColorButton"
+			android:button="@drawable/btn_white" />
+	</RadioGroup>
+</merge>
+  

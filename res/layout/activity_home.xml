@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/home_root" android:orientation="vertical"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@color/background4">
+
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_weight="1" android:padding="6dip">
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_weight="1">
+			<Button android:id="@+id/home_btn_color_parrot" style="@style/HomeButton"
+				android:text="Parrot" android:drawableTop="@drawable/home_btn"
+				android:onClick="onColorParrotButton" />
+			<Button android:id="@+id/home_btn_color_monkey" style="@style/HomeButton"
+				android:text="Bear" android:drawableTop="@drawable/home_btn"
+				android:onClick="onColorBearButton" />
+		</LinearLayout>
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_weight="1">
+			<Button android:id="@+id/home_btn_justmix" style="@style/HomeButton"
+				android:text="Just Mix" android:drawableTop="@drawable/home_btn"
+				android:onClick="onColorMixButton" />
+		</LinearLayout>
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_weight="1">
+			<Button android:id="@+id/home_btn_colors" style="@style/HomeButton"
+				android:text="Color Info" android:drawableTop="@drawable/home_btn"
+				android:onClick="onColorInfoButton" />
+			<Button android:id="@+id/home_btn_help" style="@style/HomeButton"
+				android:text="About" android:drawableTop="@drawable/home_btn"
+				android:onClick="onAboutButton" />
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

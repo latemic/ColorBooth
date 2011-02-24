@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="foreground1">#ff355689</color>
+    <color name="foreground2">#ff7081a3</color>
+    <color name="foreground3">#fffaba0b</color>
+    <color name="background1">#ffffffff</color>
+    <color name="background2">#ffd5ddeb</color>
+    <color name="background3">#ffe3e8f1</color>
+    <color name="background4">#ff355689</color>
+
+<!-- Colors -->
+<!--  http://simple.wikipedia.org/wiki/List_of_colors  -->
+    <color name="color_blue">#ff0247fe</color>
+    <color name="color_red">#fffe2712</color>
+    <color name="color_yellow">#fffefe33</color>
+    <color name="color_green">#ff66b032</color>
+    <color name="color_orange">#fffb9902</color>
+    <color name="color_violet">#ff8601af</color>
+    <color name="color_bluegreen">#ff0392ce</color>
+    <color name="color_blueviolet">#ff3d01a4</color>
+    <color name="color_redviolet">#ffa7194b</color>
+    <color name="color_redorange">#fffd6308</color>
+    <color name="color_yelloworange">#fffabc02</color>
+    <color name="color_yellowgreen">#ffd0ea2b</color>
+    <color name="color_white">#ffffffff</color>
+    <color name="color_grey">#ffa0a0a0</color>
+<!--/Colors -->
+</resources>
