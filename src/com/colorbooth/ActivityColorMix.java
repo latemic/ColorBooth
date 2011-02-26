@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 
 public class ActivityColorMix extends ActivityBase
 {
+	MediaPlayer _mediaPlayer;
 	RybColorSmartCode colorCode = new RybColorSmartCode();
 	RybColorSmartCode neededColorCode = new RybColorSmartCode();
 	
@@ -37,109 +38,120 @@ public class ActivityColorMix extends ActivityBase
 		colorNamesDict.put(R.color.color_yelloworange, R.string.color_name_yelloworange);
 	}
 	
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_colormix);
-       
-        neededColorCode.random();
-        refreshNewColor();
-    }
-    
+	@Override
+	public void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_colormix);
+		_mediaPlayer = MediaPlayer.create(this, R.raw.ting);
+		neededColorCode.random();
+		refreshNewColor();
+	}
+
+	@Override
+	protected void onDestroy()
+	{
+		_mediaPlayer.release();
+		super.onDestroy();
+	}
+
 	@Override
 	public void onConfigurationChanged(Configuration newConfig)
 	{
 		super.onConfigurationChanged(newConfig);
-        setContentView(R.layout.activity_colormix);
-        refreshNewColor();
-        refreshColor();
-	}    
-    
- // Need handler for callbacks to the UI thread
-    final Handler mHandler = new Handler();
+		setContentView(R.layout.activity_colormix);
+		refreshNewColor();
+		refreshColor();
+	}
 
-    // Create runnable for posting
-    final Runnable mCheckResult = new Runnable() {
-        public void run() {
-        	checkResult();
-        }
-    };    
-    
-    public void onColorClick(View view)
-    {
-    	RadioGroup rg = (RadioGroup)findViewById(R.id.rg_colors);
-    	int checkedButtonId = rg.getCheckedRadioButtonId();
-    	switch(checkedButtonId)
-    	{
-    	case R.id.btn_red:
-    		colorCode.setR(colorCode.getR() + 1);
-    		break;
-    	case R.id.btn_yellow:
-    		colorCode.setY(colorCode.getY() + 1);
-    		break;
-    	case R.id.btn_blue:
-    		colorCode.setB(colorCode.getB() + 1);
-    		break;
-    	case R.id.btn_white:
-    		colorCode.reset();
-    		break;
-    	}
-    	
-    	refreshColor();
-    	
-    	new Thread(
-                new Runnable()
-                {
-                    public void run()
-                    {
-            			mHandler.post(mCheckResult);
-                    }
-                }
-            ).start();
-    }
+	// Need handler for callbacks to the UI thread
+	final Handler mHandler = new Handler();
 
-    protected void refreshNewColor()
-    {
-    	int resid = rybColorCube[neededColorCode.getR()][neededColorCode.getY()][neededColorCode.getB()];
-    	Button colorButton = (Button)findViewById(R.id.btn_needed_color);
-    	colorButton.setBackgroundResource(resid);
-    	String colorName = getString((int)colorNamesDict.get(resid)); 
-    	String text = String.format(getString(R.string.task_color_mix), colorName);
-    	colorButton.setText(text);
-    }
-    
-    protected void refreshColor()
-    {
-    	int resid = rybColorCube[colorCode.getR()][colorCode.getY()][colorCode.getB()];
-    	Button currentColorButton = (Button)findViewById(R.id.btn_current_color);
-    	currentColorButton.setBackgroundResource(resid);
-    	currentColorButton.invalidate();
-    }
-    
-    protected void checkResult()
-    {
-    	if(colorCode.getB() == neededColorCode.getB()
-    		&& colorCode.getR() == neededColorCode.getR()
-    		&& colorCode.getY() == neededColorCode.getY())
-    	{
-    		try
-    		{
-        		MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.ting);
-        		mediaPlayer.start();
+	// Create runnable for posting
+	final Runnable mCheckResult = new Runnable()
+	{
+		public void run()
+		{
+			checkResult();
+		}
+	};
 
-    			// Delay to let user see the color.
-    			Thread.sleep(1000);
-        		
-    			neededColorCode.random();
-        		refreshNewColor();
-        		colorCode.reset();
-        		refreshColor();
-    		}
-    		catch (InterruptedException e)
-    		{
-    			e.printStackTrace();
-    		}
+	public void onColorClick(View view)
+	{
+		RadioGroup rg = (RadioGroup) findViewById(R.id.rg_colors);
+		int checkedButtonId = rg.getCheckedRadioButtonId();
+		switch (checkedButtonId)
+		{
+		case R.id.btn_red:
+			colorCode.setR(colorCode.getR() + 1);
+			break;
+		case R.id.btn_yellow:
+			colorCode.setY(colorCode.getY() + 1);
+			break;
+		case R.id.btn_blue:
+			colorCode.setB(colorCode.getB() + 1);
+			break;
+		case R.id.btn_white:
+			colorCode.reset();
+			break;
+		}
 
-    	}
-    }
+		refreshColor();
+
+		new Thread(new Runnable()
+		{
+			public void run()
+			{
+				mHandler.post(mCheckResult);
+			}
+		}).start();
+	}
+
+	protected void refreshNewColor()
+	{
+		int resid = rybColorCube[neededColorCode.getR()][neededColorCode.getY()][neededColorCode
+				.getB()];
+		Button colorButton = (Button) findViewById(R.id.btn_needed_color);
+		colorButton.setBackgroundResource(resid);
+		String colorName = getString((int) colorNamesDict.get(resid));
+		String text = String.format(getString(R.string.task_color_mix),
+				colorName);
+		colorButton.setText(text);
+	}
+
+	protected void refreshColor()
+	{
+		int resid = rybColorCube[colorCode.getR()][colorCode.getY()][colorCode
+				.getB()];
+		Button currentColorButton = (Button) findViewById(R.id.btn_current_color);
+		currentColorButton.setBackgroundResource(resid);
+		currentColorButton.invalidate();
+	}
+
+	protected void checkResult()
+	{
+		if (colorCode.getB() == neededColorCode.getB()
+				&& colorCode.getR() == neededColorCode.getR()
+				&& colorCode.getY() == neededColorCode.getY())
+		{
+			try
+			{
+				// Media player instance may be not created.
+				if (_mediaPlayer != null)
+				{
+					_mediaPlayer.start();
+				}
+
+				// Delay to let user see the color.
+				Thread.sleep(1000);
+				neededColorCode.random();
+				refreshNewColor();
+				colorCode.reset();
+				refreshColor();
+			} catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
 }
