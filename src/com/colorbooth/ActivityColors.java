@@ -1,9 +1,8 @@
 package com.colorbooth;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class ActivityColors extends Activity
+public class ActivityColors extends ActivityBase
 {
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -11,4 +10,11 @@ public class ActivityColors extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_colors);
     }
+    
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        logEvent(EVENT_OPEN_COLORS);
+    }       
 }

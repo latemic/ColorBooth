@@ -48,6 +48,13 @@ public class ActivityColorMix extends ActivityColoringBase
     }
 
     @Override
+    protected void onStart()
+    {
+        super.onStart();
+        logEvent(EVENT_COLOR_MIX);
+    }
+
+    @Override
     protected void onDestroy()
     {
         _mediaPlayer.release();

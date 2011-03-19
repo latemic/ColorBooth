@@ -15,6 +15,13 @@ public class ActivityParrot extends ActivityColoringPage
     }
 
     @Override
+    protected void onStart()
+    {
+        super.onStart();
+        logEvent(EVENT_COLOR_PARROT);
+    }
+    
+    @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
         setContentView(R.layout.activity_coloring);
