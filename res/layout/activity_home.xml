@@ -21,20 +21,22 @@
 		<LinearLayout android:orientation="horizontal"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
 			android:layout_weight="1">
-			<Button android:id="@+id/home_btn_justmix" style="@style/HomeButton"
-				android:text="Just Mix" android:drawableTop="@drawable/home_btn"
-				android:onClick="onColorMixButton" />
+			<Button android:id="@+id/home_btn_color_tortoise" style="@style/HomeButton"
+				android:text="Tortoise" android:drawableTop="@drawable/home_btn"
+				android:onClick="onColorTortoiseButton" />
 		</LinearLayout>
-
 		<LinearLayout android:orientation="horizontal"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
 			android:layout_weight="1">
+			<Button android:id="@+id/home_btn_justmix" style="@style/HomeButton"
+				android:text="Just Mix" android:drawableTop="@drawable/home_btn"
+				android:onClick="onColorMixButton" />
 			<Button android:id="@+id/home_btn_colors" style="@style/HomeButton"
 				android:text="Color Info" android:drawableTop="@drawable/home_btn"
 				android:onClick="onColorInfoButton" />
-			<Button android:id="@+id/home_btn_help" style="@style/HomeButton"
-				android:text="About" android:drawableTop="@drawable/home_btn"
-				android:onClick="onAboutButton" />
+<!--			<Button android:id="@+id/home_btn_help" style="@style/HomeButton"-->
+<!--				android:text="About" android:drawableTop="@drawable/home_btn"-->
+<!--				android:onClick="onAboutButton" />-->
 		</LinearLayout>
 	</LinearLayout>
 </LinearLayout>

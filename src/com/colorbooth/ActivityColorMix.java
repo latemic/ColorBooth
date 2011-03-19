@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
-public class ActivityColorMix extends ActivityBase
+public class ActivityColorMix extends ActivityColoringBase
 {
     private static final int PREVIEW_PAUSE = 1000;
     private MediaPlayer _mediaPlayer;

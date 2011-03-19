@@ -17,33 +17,21 @@
         </activity>
         <activity android:name=".ActivityParrot"
                   android:label="Parrot" android:configChanges="keyboardHidden|orientation">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="ActivityBear"
                   android:label="Bear" android:configChanges="keyboardHidden|orientation">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity android:name="ActivityTortoise" android:screenOrientation="landscape"
+                  android:label="Tortoise" android:configChanges="keyboardHidden|orientation">
         </activity>
         <activity android:name=".ActivityColorMix"
                   android:label="Color Mix" android:configChanges="keyboardHidden|orientation">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ActivityColors"
                   android:label="Colors Info">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ActivityAbout"
                   android:label="About">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 </manifest>
