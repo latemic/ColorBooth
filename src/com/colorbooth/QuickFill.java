@@ -6,7 +6,7 @@ import java.util.Queue;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 
-class FloodFill
+class QuickFill
 {
     private Bitmap _bmp;
     private int _oldColor;
@@ -14,7 +14,7 @@ class FloodFill
     private int _bmpWidth;
     private int _bmpHeight;
 
-    public FloodFill(Bitmap bmp, int oldColor, int newColor)
+    public QuickFill(Bitmap bmp, int oldColor, int newColor)
     {
         _bmp = bmp;
         _oldColor = oldColor;
@@ -26,10 +26,11 @@ class FloodFill
     public void fill(int x, int y)
     {
         // TODO : remove before release.
-        // Debug.startMethodTracing("FloodFill");
+        //Debug.startMethodTracing("FloodFill");
 
         // 1. Set Q to the empty queue.
         Queue<Point> queue = new LinkedList<Point>();
+        int[] scanLine = new int[_bmpWidth];
 
         // 2. If the color of node is not equal to target-color, return.
         if (_bmp.getPixel(x, y) == _oldColor)
@@ -48,27 +49,35 @@ class FloodFill
                     int wx = n.x;
                     int ex = n.x + 1;
 
+                    _bmp.getPixels(scanLine, 0, _bmpWidth, 0, n.y, _bmpWidth, 1);
+
                     // 7. Move w to the west until the color of the node to the
                     // west of w no longer matches target-color.
-                    while ((_bmp.getPixel(wx, n.y) == _oldColor) && wx >= 0)
+                    while (scanLine[wx] == _oldColor && wx >= 0)
                     {
+                        scanLine[wx] = _newColor;
                         wx--;
                     }
 
                     // 8. Move e to the east until the color of the node to the
                     // east of e no longer matches target-color.
-                    while ((_bmp.getPixel(ex, n.y) == _oldColor) && ex <= _bmpWidth - 1)
+                    while (scanLine[ex] == _oldColor && ex <= _bmpWidth - 1)
                     {
+                        scanLine[ex] = _newColor;
                         ex++;
                     }
 
                     // 9. Set the color of nodes between w and e to
                     // replacement-color.
+                    int length = ex - wx - 1;
+                    if (length > 0)
+                    {
+                        _bmp.setPixels(scanLine, wx + 1, _bmpWidth, wx + 1, n.y, length, 1);
+                    }
+
+                    // 10. For each node n between w and e.
                     for (int ix = wx + 1; ix < ex; ix++)
                     {
-                        _bmp.setPixel(ix, n.y, _newColor);
-
-                        // 10. For each node n between w and e.
                         // 11. If the color of the node to the north of n is
                         // target-color, add that node to Q.
                         if (n.y - 1 >= 0 && _bmp.getPixel(ix, n.y - 1) == _oldColor)
