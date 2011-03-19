@@ -24,6 +24,6 @@
 	<string name="text_about_title">About Color Booth</string>
 	<string name="task_about_text">This application helps children to study how to mix three primary colors (Yellow, Blue and Red) in order to get secondary colors. Read more on the "Color Info" page.\n\n Idea and design by Dirk Quik, Laila Bouhalhoul, Wai-Kit Cheung and Sebastiaan Kirkels programming by Denys Nikolayenko.</string>
 	<string name="text_primary_colors">There are three primary colors: Red, Blue and Yellow.</string>
-	<string name="text_secondary_color">Secondary color follow from mixing the primary colors. For example to make Green color you should take Yellow and Blue colors and mix them equally. If you want to make a Yellow-green add Yellow to the Green color.
-	</string>
+	<string name="text_secondary_color">Secondary color follow from mixing the primary colors. For example to make Green color you should take Yellow and Blue colors and mix them equally. If you want to make a Yellow-green add Yellow to the Green color.</string>
+	<string name="blog">http://denys-nikolayenko.blogspot.com</string>
 </resources>

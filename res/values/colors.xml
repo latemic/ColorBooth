@@ -3,6 +3,7 @@
     <color name="foreground1">#ff355689</color>
     <color name="foreground2">#ff7081a3</color>
     <color name="foreground3">#fffaba0b</color>
+    <color name="foreground4">#ffffffff</color>
     <color name="background1">#ffffffff</color>
     <color name="background2">#ffd5ddeb</color>
     <color name="background3">#ffe3e8f1</color>

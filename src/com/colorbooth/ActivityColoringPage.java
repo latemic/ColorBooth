@@ -9,7 +9,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.AsyncTask.Status;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,8 +16,8 @@ import android.widget.ImageView;
 public class ActivityColoringPage extends ActivityColoringBase implements View.OnTouchListener
 {
     private Bitmap _alteredBitmap;
-    private AsyncTask<Object, Void, Object> fillTask = null;
-    
+    // private AsyncTask<Object, Void, Object> fillTask = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -100,27 +99,30 @@ public class ActivityColoringPage extends ActivityColoringBase implements View.O
                     FloodFill floodfill = new FloodFill(bitmap, color, argb);
                     floodfill.fill(originalImageOffsetX, originalImageOffsetY);
                     img.invalidate();
-                    //Left for the future
-//                    if (fillTask == null || fillTask.getStatus() == Status.FINISHED)
-//                    {
-//                        FloodFill floodfill = new FloodFill(bitmap, color, argb);
-//                        fillTask = new AsyncTask<Object, Void, Object>() {
-//                            @Override
-//                            protected Object doInBackground(Object... params)
-//                            {
-//                                ((FloodFill) params[0]).fill((Integer) params[1], (Integer) params[2]);
-//                                return params[3];
-//                            }
-//
-//                            @Override
-//                            protected void onPostExecute(Object result)
-//                            {
-//                                ((ImageView) result).invalidate();
-//                            }
-//                        };
-//
-//                        fillTask.execute(floodfill, originalImageOffsetX, originalImageOffsetY, img);
-//                    }
+                    // Left for the future
+                    // if (fillTask == null || fillTask.getStatus() ==
+                    // Status.FINISHED)
+                    // {
+                    // FloodFill floodfill = new FloodFill(bitmap, color, argb);
+                    // fillTask = new AsyncTask<Object, Void, Object>() {
+                    // @Override
+                    // protected Object doInBackground(Object... params)
+                    // {
+                    // ((FloodFill) params[0]).fill((Integer) params[1],
+                    // (Integer) params[2]);
+                    // return params[3];
+                    // }
+                    //
+                    // @Override
+                    // protected void onPostExecute(Object result)
+                    // {
+                    // ((ImageView) result).invalidate();
+                    // }
+                    // };
+                    //
+                    // fillTask.execute(floodfill, originalImageOffsetX,
+                    // originalImageOffsetY, img);
+                    // }
                 }
             }
             break;

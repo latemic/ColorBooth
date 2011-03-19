@@ -10,7 +10,7 @@ public class ActivityParrot extends ActivityColoringPage
     public void onCreate(Bundle savedInstanceState)
     {
         setContentView(R.layout.activity_coloring);
-        ((ImageView)findViewById(R.id.iv_coloring_figure)).setImageResource(R.drawable.parrot);
+        ((ImageView) findViewById(R.id.iv_coloring_figure)).setImageResource(R.drawable.parrot);
         super.onCreate(savedInstanceState);
     }
 
@@ -20,12 +20,12 @@ public class ActivityParrot extends ActivityColoringPage
         super.onStart();
         logEvent(EVENT_COLOR_PARROT);
     }
-    
+
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
         setContentView(R.layout.activity_coloring);
-        ((ImageView)findViewById(R.id.iv_coloring_figure)).setImageResource(R.drawable.parrot);
+        ((ImageView) findViewById(R.id.iv_coloring_figure)).setImageResource(R.drawable.parrot);
         super.onConfigurationChanged(newConfig);
     }
 }

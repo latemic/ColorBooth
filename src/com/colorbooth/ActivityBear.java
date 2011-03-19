@@ -11,10 +11,10 @@ public class ActivityBear extends ActivityColoringPage
     public void onCreate(Bundle savedInstanceState)
     {
         setContentView(R.layout.activity_coloring);
-        ((ImageView)findViewById(R.id.iv_coloring_figure)).setImageResource(R.drawable.bear);
+        ((ImageView) findViewById(R.id.iv_coloring_figure)).setImageResource(R.drawable.bear);
         super.onCreate(savedInstanceState);
     }
-    
+
     @Override
     protected void onStart()
     {
@@ -26,7 +26,7 @@ public class ActivityBear extends ActivityColoringPage
     public void onConfigurationChanged(Configuration newConfig)
     {
         setContentView(R.layout.activity_coloring);
-        ((ImageView)findViewById(R.id.iv_coloring_figure)).setImageResource(R.drawable.bear);
+        ((ImageView) findViewById(R.id.iv_coloring_figure)).setImageResource(R.drawable.bear);
         super.onConfigurationChanged(newConfig);
     }
 }

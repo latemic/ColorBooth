@@ -10,11 +10,11 @@ public class ActivityColors extends ActivityBase
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_colors);
     }
-    
+
     @Override
     protected void onStart()
     {
         super.onStart();
         logEvent(EVENT_OPEN_COLORS);
-    }       
+    }
 }
